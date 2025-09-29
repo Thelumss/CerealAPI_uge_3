@@ -1,0 +1,8 @@
+﻿namespace CerealAPI_uge_3.Repositories.Models
+{
+    public class Brands
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+}

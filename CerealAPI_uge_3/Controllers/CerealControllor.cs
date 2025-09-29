@@ -1,14 +1,12 @@
-using CerealAPI_uge_3.Repositories.Models;
+﻿using CerealAPI_uge_3.Repositories.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CerealAPI_uge_3.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class CerealControllor : ControllerBase
     {
         private static readonly string[] Summaries = new[]
-        {
+         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 

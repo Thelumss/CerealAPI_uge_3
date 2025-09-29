@@ -1,4 +1,6 @@
 
+using CerealAPI_uge_3.Repositories;
+
 namespace CerealAPI_uge_3
 {
     public class Program
@@ -15,6 +17,8 @@ namespace CerealAPI_uge_3
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+
+            SeedData.Initialize();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

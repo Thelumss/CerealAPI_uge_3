@@ -1,4 +1,4 @@
-namespace CerealAPI_uge_3
+namespace CerealAPI_uge_3.Repositories.Models
 {
     public class WeatherForecast
     {

@@ -11,11 +11,6 @@ namespace CerealAPI_uge_3.Repositories.Data
             
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
-
         public DbSet<Cereal> cereals { get; set; }
         public DbSet<Brands> Brands { get; set; }
         public DbSet<Temperatur> temperaturs { get; set; }

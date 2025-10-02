@@ -1,7 +1,6 @@
-﻿using CerealAPI_uge_3.Repositories.Data;
-using Microsoft.EntityFrameworkCore;
-using CerealAPI_uge_3.Repositories.Models;
-namespace CerealAPI_uge_3.Repositories
+﻿using Microsoft.EntityFrameworkCore;
+using CerealAPI_uge_3.Data;
+namespace CerealAPI_uge_3.Models
 {
     public class SeedData
     {

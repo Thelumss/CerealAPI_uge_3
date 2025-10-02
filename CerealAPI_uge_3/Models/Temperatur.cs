@@ -1,4 +1,4 @@
-﻿namespace CerealAPI_uge_3.Repositories.Models
+﻿namespace CerealAPI_uge_3.Models
 {
     public class Temperatur
     {

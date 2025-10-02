@@ -1,8 +1,7 @@
-﻿using CerealAPI_uge_3.Repositories.Models;
+﻿using CerealAPI_uge_3.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.InteropServices.Marshalling;
 
-namespace CerealAPI_uge_3.Repositories.Data
+namespace CerealAPI_uge_3.Data
 {
     public class CerealDataContext: DbContext
     {
@@ -11,6 +10,8 @@ namespace CerealAPI_uge_3.Repositories.Data
         {
             
         }
+
+     
 
         public DbSet<Cereal> cereals { get; set; }
         public DbSet<Brands> Brands { get; set; }

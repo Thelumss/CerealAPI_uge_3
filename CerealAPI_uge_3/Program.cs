@@ -1,6 +1,8 @@
 
-using CerealAPI_uge_3.Repositories;
-using CerealAPI_uge_3.Repositories.Data;
+using CerealAPI_uge_3.Data;
+using CerealAPI_uge_3.Interface;
+using CerealAPI_uge_3.Models;
+using CerealAPI_uge_3.Repostitory;
 using Microsoft.EntityFrameworkCore;
 
 namespace CerealAPI_uge_3
@@ -13,8 +15,12 @@ namespace CerealAPI_uge_3
 
             // Add services to the container.
 
+
+
             builder.Services.AddControllers();
             builder.Services.AddTransient<SeedData>();
+
+            builder.Services.AddScoped<ICereal, CerealRepository>();
 
             builder.Services.AddCors(opt =>
             {

@@ -16,6 +16,17 @@ namespace CerealAPI_uge_3
             builder.Services.AddControllers();
             builder.Services.AddTransient<SeedData>();
 
+            builder.Services.AddCors(opt =>
+            {
+                opt.AddPolicy("MyPolicy", opt =>
+                {
+                    opt.AllowAnyHeader()
+                       .AllowAnyMethod()
+                       .AllowCredentials()
+                       .WithOrigins("http://localhost:4200");
+                });
+            });
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -42,6 +53,9 @@ namespace CerealAPI_uge_3
 
             app.UseAuthorization();
 
+            app.UseAuthentication();
+
+            app.UseAuthorization();
 
             app.MapControllers();
 

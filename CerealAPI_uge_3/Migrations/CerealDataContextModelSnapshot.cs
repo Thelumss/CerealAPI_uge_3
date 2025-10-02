@@ -100,6 +100,28 @@ namespace CerealAPI_uge_3.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("cereals");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Brands = "",
+                            Calories = 1,
+                            Carbo = 1f,
+                            Cups = 1f,
+                            Fat = 1,
+                            Fiber = 1f,
+                            Name = "",
+                            Potass = 1,
+                            Protein = 1,
+                            Rating = 1f,
+                            Shelf = 1,
+                            Sodium = 1,
+                            Temperatur = "",
+                            Weight = 1f,
+                            sugars = 1,
+                            vitamins = 1
+                        });
                 });
 
             modelBuilder.Entity("CerealAPI_uge_3.Repositories.Models.Temperatur", b =>

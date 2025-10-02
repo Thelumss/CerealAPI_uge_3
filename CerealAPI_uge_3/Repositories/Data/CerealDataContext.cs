@@ -1,5 +1,6 @@
 ﻿using CerealAPI_uge_3.Repositories.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.InteropServices.Marshalling;
 
 namespace CerealAPI_uge_3.Repositories.Data
 {

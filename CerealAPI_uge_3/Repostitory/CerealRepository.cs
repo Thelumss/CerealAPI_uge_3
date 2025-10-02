@@ -1,10 +1,11 @@
 ﻿using CerealAPI_uge_3.Data;
 using CerealAPI_uge_3.Interface;
 using CerealAPI_uge_3.Models;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace CerealAPI_uge_3.Repostitory
 {
-    public class CerealRepository: ICerealRepository
+    public class CerealRepository : ICerealRepository
     {
         private readonly CerealDataContext context;
 
@@ -40,5 +41,13 @@ namespace CerealAPI_uge_3.Repostitory
         {
             return context.cereals.Where(x => x.sugars == sugars).ToList();
         }
+
+        public bool deleteCerealById(Cereal cereal)
+        {
+            context.Remove(cereal);
+            context.SaveChanges();
+            return true;
+        }
+
     }
 }

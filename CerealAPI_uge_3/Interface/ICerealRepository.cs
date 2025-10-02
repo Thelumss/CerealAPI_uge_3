@@ -6,6 +6,7 @@ namespace CerealAPI_uge_3.Interface
     {
         ICollection<Cereal> GetCereals();
         Cereal GetCerealById(int id);
+        bool deleteCerealById(Cereal Cereal);
         Cereal getCerealbyName(string Name);
         ICollection<Cereal> getCerealByBrand(string Brands);
         ICollection<Cereal> getCerealbytemp(string Temperatur);

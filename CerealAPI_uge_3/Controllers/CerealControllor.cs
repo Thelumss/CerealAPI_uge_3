@@ -86,6 +86,19 @@ namespace CerealAPI_uge_3.Controllers
             }
         }
 
+        [HttpDelete("/deletebyid{Id}")]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        public IActionResult deltebyid(int id)
+        {
+            var cereals = cerealrepository.GetCerealById(id);
+
+            var test = cerealrepository.deleteCerealById(cereals);
+
+            return Ok(test);
+
+        }
 
 
     }

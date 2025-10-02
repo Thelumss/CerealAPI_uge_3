@@ -1,5 +1,6 @@
 ﻿using CerealAPI_uge_3.Interface;
 using CerealAPI_uge_3.Models;
+using CerealAPI_uge_3.Repostitory;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -9,18 +10,18 @@ namespace CerealAPI_uge_3.Controllers
     [Microsoft.AspNetCore.Mvc.ApiController]
     public class CerealControllor: Controller
     {
-        private readonly ICereal cereal;
+        private readonly ICerealRepository cerealrepository;
 
-        public CerealControllor(ICereal cereal)
+        public CerealControllor(ICerealRepository cereal)
         {
-            this.cereal = cereal;
+            this.cerealrepository = cereal;
         }
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Cereal>))]
         public IActionResult GetCereal()
         {
-            var cereals = cereal.GetCereals();
+            var cereals = cerealrepository.GetCereals();
 
             if (!ModelState.IsValid)
             {
@@ -30,5 +31,62 @@ namespace CerealAPI_uge_3.Controllers
                 return Ok(cereals);
             }
         }
+
+        [HttpGet("/CerealId{CerealId}")]
+        [ProducesResponseType(200, Type = typeof(Cereal))]
+        [ProducesResponseType(400)]
+        public IActionResult getCerealbyId(int id)
+        {
+            
+            var cereals = cerealrepository.GetCerealById(id);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                return Ok(cereals);
+            }
+        }
+
+        [HttpGet("/sugar{sugar}")]
+        [ProducesResponseType(200, Type = typeof(Cereal))]
+        [ProducesResponseType(400)]
+        public IActionResult getCerealbysugar(int sugar)
+        {
+
+            var cereals = cerealrepository.getCerealbySugars(sugar);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                return Ok(cereals);
+            }
+        }
+
+        [HttpGet("/brand{brand}")]
+        [ProducesResponseType(200, Type = typeof(Cereal))]
+        [ProducesResponseType(400)]
+        public IActionResult getCerealbyBrand(string brand)
+        {
+
+            var cereals = cerealrepository.getCerealByBrand(brand);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                return Ok(cereals);
+            }
+        }
+
+
+
     }
 }

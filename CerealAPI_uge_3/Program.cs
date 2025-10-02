@@ -20,7 +20,7 @@ namespace CerealAPI_uge_3
             builder.Services.AddControllers();
             builder.Services.AddTransient<SeedData>();
 
-            builder.Services.AddScoped<ICereal, CerealRepository>();
+            builder.Services.AddScoped<ICerealRepository, CerealRepository>();
 
             builder.Services.AddCors(opt =>
             {

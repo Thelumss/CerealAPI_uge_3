@@ -13,6 +13,8 @@ namespace CerealAPI_uge_3.Interface
         ICollection<Cereal> getCerealByBrand(string Brands);
         ICollection<Cereal> getCerealbytemp(string Temperatur);
         ICollection<Cereal> getCerealbySugars(int sugars);
+        bool createCereal(Cereal cereal);
         bool Save();
+
     }
 }

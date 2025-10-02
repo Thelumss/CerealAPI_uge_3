@@ -1,4 +1,5 @@
-﻿using CerealAPI_uge_3.Interface;
+﻿using CerealAPI_uge_3.Dto;
+using CerealAPI_uge_3.Interface;
 using CerealAPI_uge_3.Models;
 using CerealAPI_uge_3.Repostitory;
 using Microsoft.AspNetCore.Mvc;
@@ -84,6 +85,38 @@ namespace CerealAPI_uge_3.Controllers
             {
                 return Ok(cereals);
             }
+        }
+
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        public IActionResult createCereal([FromBody] Cereal cerealCreate)
+        {
+            if(cerealCreate == null)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var cereal = cerealrepository.GetCereals().Where(c => c.Id == cerealCreate.Id);
+
+            if(cereal != null)
+            {
+                ModelState.AddModelError("","Cereal already exist");
+                return StatusCode(422, ModelState);
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (!cerealrepository.createCereal(cerealCreate))
+            {
+                ModelState.AddModelError("", "Something went wrong while savin");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok("Successfully created");
         }
 
         [HttpDelete("{pokeId}")]

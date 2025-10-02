@@ -86,20 +86,30 @@ namespace CerealAPI_uge_3.Controllers
             }
         }
 
-        [HttpDelete("/deletebyid{Id}")]
+        [HttpDelete("{pokeId}")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
-        public IActionResult deltebyid(int id)
+        public IActionResult DeletePokemon(int cerealId)
         {
-            var cereals = cerealrepository.GetCerealById(id);
+            if (!cerealrepository.cerealExists(cerealId))
+            {
+                return NotFound();
+            }
 
-            var test = cerealrepository.deleteCerealById(cereals);
+            var cerealToDelte = cerealrepository.GetCerealById(cerealId);
 
-            return Ok(test);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
+
+
+            if (!cerealrepository.deleteCerealByCereal(cerealToDelte))
+            {
+                ModelState.AddModelError("", "Something went wrong deleting owner");
+            }
+
+            return NoContent();
         }
-
-
     }
 }

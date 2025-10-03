@@ -16,6 +16,7 @@ namespace CerealAPI_uge_3.Data
         public DbSet<Cereal> cereals { get; set; }
         public DbSet<Brands> Brands { get; set; }
         public DbSet<Temperatur> temperaturs { get; set; }
+        public DbSet<User> users { get; set; }
 
     }
 }

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CerealAPI_uge_3.Migrations
 {
     [DbContext(typeof(CerealDataContext))]
-    [Migration("20250930110855_InitialCreate")]
+    [Migration("20251003063920_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -24,7 +24,7 @@ namespace CerealAPI_uge_3.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CerealAPI_uge_3.Repositories.Models.Brands", b =>
+            modelBuilder.Entity("CerealAPI_uge_3.Models.Brands", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -41,7 +41,7 @@ namespace CerealAPI_uge_3.Migrations
                     b.ToTable("Brands");
                 });
 
-            modelBuilder.Entity("CerealAPI_uge_3.Repositories.Models.Cereal", b =>
+            modelBuilder.Entity("CerealAPI_uge_3.Models.Cereal", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -105,7 +105,7 @@ namespace CerealAPI_uge_3.Migrations
                     b.ToTable("cereals");
                 });
 
-            modelBuilder.Entity("CerealAPI_uge_3.Repositories.Models.Temperatur", b =>
+            modelBuilder.Entity("CerealAPI_uge_3.Models.Temperatur", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -120,6 +120,31 @@ namespace CerealAPI_uge_3.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("temperaturs");
+                });
+
+            modelBuilder.Entity("CerealAPI_uge_3.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("users");
                 });
 #pragma warning restore 612, 618
         }

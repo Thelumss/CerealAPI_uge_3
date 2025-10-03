@@ -97,12 +97,12 @@ namespace CerealAPI_uge_3.Controllers
                 return BadRequest(ModelState);
             }
 
-            var cereal = cerealrepository.GetCereals().Where(c => c.Id == cerealCreate.Id);
+            bool cereal = cerealrepository.cerealExists(cerealCreate.Id);
 
-            if(cereal != null)
+            if(cereal)
             {
-                ModelState.AddModelError("","Cereal already exist");
-                return StatusCode(422, ModelState);
+                cerealrepository.UpdateCereal(cerealCreate);
+                return Ok("Cereal Successfully Updated");
             }
 
             if (!ModelState.IsValid)
@@ -110,11 +110,12 @@ namespace CerealAPI_uge_3.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (!cerealrepository.createCereal(cerealCreate))
+            if (cerealCreate.Id != 0)
             {
-                ModelState.AddModelError("", "Something went wrong while savin");
+                ModelState.AddModelError("", "Can't give id ");
                 return StatusCode(500, ModelState);
             }
+            cerealrepository.createCereal(cerealCreate);
 
             return Ok("Successfully created");
         }

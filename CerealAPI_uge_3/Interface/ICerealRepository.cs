@@ -14,6 +14,7 @@ namespace CerealAPI_uge_3.Interface
         ICollection<Cereal> getCerealbytemp(string Temperatur);
         ICollection<Cereal> getCerealbySugars(int sugars);
         bool createCereal(Cereal cereal);
+        bool UpdateCereal(Cereal cereal);
         bool Save();
 
     }

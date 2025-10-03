@@ -66,5 +66,11 @@ namespace CerealAPI_uge_3.Repostitory
             context.cereals.Add(cereal);
             return Save();
         }
+
+        public bool UpdateCereal(Cereal cereal)
+        {
+            context.cereals.Update(cereal);
+            return Save();
+        }
     }
 }

@@ -3,6 +3,7 @@ using NuGet.Common;
 
 namespace CerealAPI_uge_3.Interface
 {
+    //the beginings of interface for UserRepository for autrzation
     public interface IUserRepository
     {
         ICollection<User> GetUsers();

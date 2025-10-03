@@ -2,6 +2,7 @@
 {
     public class Cereal
     {
+        //what the migration uses to genorate the sql for making the tables in the database 
         public int Id { get; set; }
         public string Name { get; set; }
         public string Brands { get; set; }

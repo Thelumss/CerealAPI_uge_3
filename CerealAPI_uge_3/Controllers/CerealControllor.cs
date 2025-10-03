@@ -146,7 +146,7 @@ namespace CerealAPI_uge_3.Controllers
         /*
          * and deletes the cereal from the database with that id
          */
-        [HttpDelete("/delete{CerealId}")]
+        [HttpDelete("/delete{cerealId}")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]

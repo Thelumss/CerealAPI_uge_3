@@ -1,58 +1,58 @@
-# \# CerealAPI
+\### CerealAPI
 
-# 
+\# API END PONITS
 
-# \# API END PONITS
+\# Cereal Controllor
 
-# \# Cereal Controllor
+\# /api/CerealControllor
 
-# \# /api/CerealControllor
 
-# Need no input gives back a json with all of the cereal produckts
 
-# \# /CerealbyId{CerealId}
+Need no input gives back a json with all of the cereal produckts
 
-# Needs to be given a id of a cereal gives back a json object contatining the cereal
+\# /CerealbyId{CerealId}
 
-# \# /sugar{sugar}
+Needs to be given a id of a cereal gives back a json object contatining the cereal
 
-# Needs to be given a sugar value gives back a json object containing all the cereal with that amount of sugar
+\# /sugar{sugar}
 
-# 
+Needs to be given a sugar value gives back a json object containing all the cereal with that amount of sugar
 
-# \# /brand{brand}
 
-# Needs to be given a brand name gives back a json object containing all the cereal with that brand name
 
-# \# /post
+\# /brand{brand}
 
-# Needs to be given a cereal in json
+Needs to be given a brand name gives back a json object containing all the cereal with that brand name
 
-# If a cereal with that id exist is information is overridden
+\# /post
 
-# If the cereal is given a id that does not exist it gives error and does noting more
+Needs to be given a cereal in json
 
-# If  no id is given it defaults to 0 and treats it as nonexistent and adds the cereal to the database that gives it is id
+If a cereal with that id exist is information is overridden
 
-# \# /delete{CerealId}
+If the cereal is given a id that does not exist it gives error and does noting more
 
-# Need to be given a id delets a cereal with that id
+If  no id is given it defaults to 0 and treats it as nonexistent and adds the cereal to the database that gives it is id
 
-# \# UserControllor
+\# /delete{CerealId}
 
-# \# /api/UserControllor
+Need to be given a id delets a cereal with that id
 
-# Need no input gives back a json with all of the users in the database
+\# UserControllor
 
-# 
+\# /api/UserControllor
 
-# \# Setup
+Need no input gives back a json with all of the users in the database
 
-# In appsettings.json you need to give it a connection string for your database you only need to setup the database not the tables.
 
-# You can use the migrations to create the tables and then when you run the program it populates the database if the tables with information.
 
-# 
+\# Setup
 
-# 
+In appsettings.json you need to give it a connection string for your database you only need to setup the database not the tables.
+
+You can use the migrations to create the tables and then when you run the program it populates the database if the tables with information.
+
+
+
+
 

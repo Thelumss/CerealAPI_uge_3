@@ -9,6 +9,7 @@ namespace CerealAPI_uge_3.Repostitory
 {
     public class UserRepository : IUserRepository
     {
+        // beinings of autrzation with some implemetation for UserRepository
         private readonly CerealDataContext context;
 
         public UserRepository(CerealDataContext Context)

@@ -5,6 +5,7 @@ namespace CerealAPI_uge_3.Repostitory
 {
     public class AuthenticationRepository: IAuthenticationRepository
     {
+        // beinings of autrzation with some implemetation for AuthenticationRepository
         private readonly CerealDataContext context;
 
         public AuthenticationRepository(CerealDataContext context)

@@ -160,9 +160,6 @@ namespace CerealAPI_uge_3.Controllers
 
             var cerealToDelte = cerealrepository.GetCerealById(cerealId);
 
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
 
             //her we delte the cereal if something goes wrong that is the error message
             if (!cerealrepository.deleteCerealByCereal(cerealToDelte))

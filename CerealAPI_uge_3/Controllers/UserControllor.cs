@@ -23,7 +23,7 @@ namespace CerealAPI_uge_3.Controllers
         //simple to get the useres
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<User>))]
-        public IActionResult GetCereal()
+        public IActionResult Getuser()
         {
             var Users = userRepository.GetUsers();
 

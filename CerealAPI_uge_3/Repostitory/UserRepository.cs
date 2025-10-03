@@ -25,6 +25,11 @@ namespace CerealAPI_uge_3.Repostitory
             return context.users.OrderBy(x => x.Id).ToList();
         }
 
+        public Token login(string name, string password)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool UserExists(int id)
         {
             throw new NotImplementedException();

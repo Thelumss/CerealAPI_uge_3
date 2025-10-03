@@ -1,5 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using CerealAPI_uge_3.Data;
+﻿using CerealAPI_uge_3.Data;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography;
+using System.Security.Policy;
 namespace CerealAPI_uge_3.Models
 {
     public class SeedData
@@ -49,9 +52,28 @@ namespace CerealAPI_uge_3.Models
                                      }
                                      );
                             }
+                            sr.Close();
                         }
                     }
 
+                }
+
+                if (!context.users.Any())
+                {
+                    byte[] salt = RandomNumberGenerator.GetBytes(128 / 8);
+                    context.AddRange(
+                        new User
+                        {
+                            Name = "test",
+                            Email = "test@test",
+                            Password = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                            password: "test",
+                            salt: salt,
+                            prf: KeyDerivationPrf.HMACSHA256,
+                            iterationCount: 100000,
+                            numBytesRequested: 256 / 8))
+                        }
+                        );
                 }
                 await context.SaveChangesAsync();
             }

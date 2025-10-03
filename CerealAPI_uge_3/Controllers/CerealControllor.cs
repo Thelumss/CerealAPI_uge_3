@@ -1,12 +1,12 @@
-﻿using CerealAPI_uge_3.Dto;
-using CerealAPI_uge_3.Interface;
+﻿using CerealAPI_uge_3.Interface;
 using CerealAPI_uge_3.Models;
-using CerealAPI_uge_3.Repostitory;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace CerealAPI_uge_3.Controllers
 {
+    
     [Route("api/[controller]")]
     [Microsoft.AspNetCore.Mvc.ApiController]
     public class CerealControllor: Controller
@@ -33,13 +33,13 @@ namespace CerealAPI_uge_3.Controllers
             }
         }
 
-        [HttpGet("/CerealId{CerealId}")]
+        [HttpGet("/CerealbyId{CerealId}")]
         [ProducesResponseType(200, Type = typeof(Cereal))]
         [ProducesResponseType(400)]
-        public IActionResult getCerealbyId(int id)
+        public IActionResult getCerealbyId(int CerealId)
         {
             
-            var cereals = cerealrepository.GetCerealById(id);
+            var cereals = cerealrepository.GetCerealById(CerealId);
 
             if (!ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace CerealAPI_uge_3.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("/post{CerealId}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
         public IActionResult createCereal([FromBody] Cereal cerealCreate)
@@ -120,11 +120,12 @@ namespace CerealAPI_uge_3.Controllers
             return Ok("Successfully created");
         }
 
-        [HttpDelete("{pokeId}")]
+        
+        [HttpDelete("/delete{CerealId}")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
-        public IActionResult DeletePokemon(int cerealId)
+        public IActionResult DeleteCereal(int cerealId)
         {
             if (!cerealrepository.cerealExists(cerealId))
             {

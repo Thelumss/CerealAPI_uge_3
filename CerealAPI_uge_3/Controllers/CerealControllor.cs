@@ -1,7 +1,9 @@
 ﻿using CerealAPI_uge_3.Interface;
 using CerealAPI_uge_3.Models;
+using Microsoft.AspNetCore.Authentication.BearerToken;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Common;
 
 
 namespace CerealAPI_uge_3.Controllers
@@ -120,7 +122,6 @@ namespace CerealAPI_uge_3.Controllers
             return Ok("Successfully created");
         }
 
-        
         [HttpDelete("/delete{CerealId}")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]

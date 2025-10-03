@@ -1,6 +1,9 @@
 ﻿using CerealAPI_uge_3.Data;
 using CerealAPI_uge_3.Interface;
 using CerealAPI_uge_3.Models;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using NuGet.Common;
+using System.Security.Cryptography;
 
 namespace CerealAPI_uge_3.Repostitory
 {

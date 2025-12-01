@@ -1,6 +1,6 @@
 ﻿namespace CerealAPI_uge_3.Interface
 {
-    //beinings for a autrzation interface reoisutiry
+    //beginnings for a authorization interface repository
     public interface IAuthenticationRepository
     {
         string token();

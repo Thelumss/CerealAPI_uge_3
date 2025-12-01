@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CerealAPI_uge_3.Controllers
 {
     /*
-     * the beginings of the user controllor for autrzation
+     * the beginnings of the user controller for authorization
      */
     [Route("api/[controller]")]
     [Microsoft.AspNetCore.Mvc.ApiController]
@@ -20,7 +20,7 @@ namespace CerealAPI_uge_3.Controllers
             this.userRepository = userRepository;
         }
 
-        //simple to get the useres
+        //simple to get the users
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<User>))]
         public IActionResult Getuser()

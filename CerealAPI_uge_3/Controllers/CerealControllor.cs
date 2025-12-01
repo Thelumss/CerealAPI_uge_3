@@ -41,7 +41,7 @@ namespace CerealAPI_uge_3.Controllers
 
 
         /*
-         * simple get request that get the cereal by its id
+         * simple get request that gets the cereal by its id
          */
         [HttpGet("/CerealbyId{CerealId}")]
         [ProducesResponseType(200, Type = typeof(Cereal))]
